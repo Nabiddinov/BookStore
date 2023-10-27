@@ -1,5 +1,8 @@
 ﻿using BookStore.Models.Domain;
 using BookStore.Repositories.Abstract;
+using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
 
 namespace BookStore.Repositories.Implementation
 {
@@ -12,38 +15,60 @@ namespace BookStore.Repositories.Implementation
             _context = context;
         }
 
-        public bool Add(Book model)
+        public bool Add(Genre model)
         {
             try
             {
-                _context.Add(model);
+                _context.Genre.Add(model);
                 _context.SaveChanges();
+                return true;
             }
             catch (Exception)
             {
-
-                throw;
+                return false;
             }
         }
 
-        public bool Delete(Book model)
+        public bool Delete(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var data = this.FindById(id);
+                if (data == null)
+                    return false;
+
+                _context.Genre.Remove(data);
+                _context.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
 
-        public bool FindById(Book model)
+        public Genre FindById(int id)
         {
-            throw new NotImplementedException();
+            return _context.Genre.Find(id);
         }
 
-        public IEnumerable<Book> GetAll()
+        public IEnumerable<Genre> GetAll()
         {
-            throw new NotImplementedException();
+            return _context.Genre.ToList();
         }
 
-        public bool Update(Book model)
+        public bool Update(Genre model)
         {
-            throw new NotImplementedException();
+            try
+            {
+                _context.Genre.Update(model);
+                _context.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
     }
 }

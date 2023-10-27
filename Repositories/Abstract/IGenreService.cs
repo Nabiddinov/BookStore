@@ -4,10 +4,10 @@ namespace BookStore.Repositories.Abstract
 {
     public interface IGenreService
     {
-        bool Add(Book model);
-        bool Delete(Book model);
-        bool Update(Book model);
-        bool FindById(Book model);
-        IEnumerable<Book> GetAll();
+        bool Add(Genre model);
+        bool Delete(int id);
+        bool Update(Genre model);
+        Genre FindById(int id);
+        IEnumerable<Genre> GetAll();
     }
 }
