@@ -39,5 +39,31 @@ namespace BookStore.Controllers
             TempData["msg"] = "Error has occured on server side";
             return View(model);
         }
+
+        public IActionResult Update(int id)
+        {
+            var  recored = _service.FindById(id);
+            return View(recored);
+        }
+
+        [HttpPost]
+        public IActionResult Update(Genre model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+            var result = _service.Update(model);
+            if (result)
+            {
+                TempData["msg"] = "Added Successfully";
+                return RedirectToAction(nameof(Add));
+            }
+            TempData["msg"] = "Error has occured on server side";
+            return View(model);
+        }
+
+
+
     }
 }

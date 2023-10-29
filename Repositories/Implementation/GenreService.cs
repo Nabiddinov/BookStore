@@ -1,8 +1,5 @@
 ﻿using BookStore.Models.Domain;
 using BookStore.Repositories.Abstract;
-using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
 
 namespace BookStore.Repositories.Implementation
 {
