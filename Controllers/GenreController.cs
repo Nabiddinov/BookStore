@@ -42,7 +42,7 @@ namespace BookStore.Controllers
 
         public IActionResult Update(int id)
         {
-            var  recored = _service.FindById(id);
+            var recored = _service.FindById(id);
             return View(recored);
         }
 
@@ -62,8 +62,5 @@ namespace BookStore.Controllers
             TempData["msg"] = "Error has occured on server side";
             return View(model);
         }
-
-
-
     }
 }
