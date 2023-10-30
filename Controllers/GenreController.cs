@@ -62,5 +62,17 @@ namespace BookStore.Controllers
             TempData["msg"] = "Error has occured on server side";
             return View(model);
         }
+
+        public IActionResult Delete(int id)
+        {
+            var result = _service.Delete(id);
+                return RedirectToAction("GetAll");
+        }
+
+        public IActionResult GetAll()
+        {
+            var data = _service.GetAll();
+            return View(data);
+        }
     }
 }
