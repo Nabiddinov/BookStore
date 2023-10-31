@@ -1,7 +1,7 @@
 ﻿using BookStore.Models.Domain;
 using BookStore.Repositories.Abstract;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace BookStore.Controllers
 {

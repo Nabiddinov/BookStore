@@ -66,7 +66,7 @@ namespace BookStore.Controllers
         public IActionResult Delete(int id)
         {
             var result = _service.Delete(id);
-                return RedirectToAction("GetAll");
+            return RedirectToAction("GetAll");
         }
 
         public IActionResult GetAll()
