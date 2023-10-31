@@ -3,18 +3,18 @@ using BookStore.Repositories.Abstract;
 
 namespace BookStore.Repositories.Implementation
 {
-    public class GenreService : IGenreService
+    public class PublisherService : IPublisherService
     {
         private readonly DatabaseContext context;
-        public GenreService(DatabaseContext context)
+        public PublisherService(DatabaseContext context)
         {
             this.context = context;
         }
-        public bool Add(Genre model)
+        public bool Add(Publisher model)
         {
             try
             {
-                context.Genre.Add(model);
+                context.Publisher.Add(model);
                 context.SaveChanges();
                 return true;
             }
@@ -31,7 +31,7 @@ namespace BookStore.Repositories.Implementation
                 var data = this.FindById(id);
                 if (data == null)
                     return false;
-                context.Genre.Remove(data);
+                context.Publisher.Remove(data);
                 context.SaveChanges();
                 return true;
             }
@@ -41,21 +41,21 @@ namespace BookStore.Repositories.Implementation
             }
         }
 
-        public Genre FindById(int id)
+        public Publisher FindById(int id)
         {
-            return context.Genre.Find(id);
+            return context.Publisher.Find(id);
         }
 
-        public IEnumerable<Genre> GetAll()
+        public IEnumerable<Publisher> GetAll()
         {
-            return context.Genre.ToList();
+            return context.Publisher.ToList();
         }
 
-        public bool Update(Genre model)
+        public bool Update(Publisher model)
         {
             try
             {
-                context.Genre.Update(model);
+                context.Publisher.Update(model);
                 context.SaveChanges();
                 return true;
             }
