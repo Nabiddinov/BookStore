@@ -33,7 +33,6 @@ namespace BookStore.Controllers
             return View(model);
         }
 
-
         public IActionResult Update(int id)
         {
             var record = service.FindById(id);
@@ -55,7 +54,6 @@ namespace BookStore.Controllers
             TempData["msg"] = "Error has occured on server side";
             return View(model);
         }
-
 
         public IActionResult Delete(int id)
         {
